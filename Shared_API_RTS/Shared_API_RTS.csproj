@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName></SccProjectName>
+    <SccProvider></SccProvider>
+    <SccAuxPath></SccAuxPath>
+    <SccLocalPath></SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Generic_API.proto" />
+    <None Remove="Generic_API_Clients.proto" />
+    <None Remove="Generic_API_Generics.proto" />
+    <None Remove="Generic_API_Rates.proto" />
+    <None Remove="Generic_API_Transits.proto" />
+    <None Remove="Generic_API_Users.proto" />
+    <None Remove="LiteGateDirect_API.proto" />
+    <None Remove="ServerDirect_API.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.15.6" />
+    <PackageReference Include="Grpc" Version="2.27.0" />
+    <PackageReference Include="Grpc.Core" Version="2.27.0" />
+    <PackageReference Include="Grpc.Core.Api" Version="2.27.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.27.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="API\Generic\Generic_API_Clients.proto" />
+    <Protobuf Include="API\Generic\Generic_API_Generics.proto" />
+    <Protobuf Include="API\Generic\Generic_API_Users.proto" />
+    <Protobuf Include="API\Generic\Generic_API_Rates.proto" />
+    <Protobuf Include="API\Generic\Generic_API_Transits.proto" />
+    <Protobuf Include="API\Generic\Generic_API.proto" />
+  </ItemGroup>
+
+</Project>

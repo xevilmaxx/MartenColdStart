@@ -1,0 +1,54 @@
+﻿syntax = "proto3";
+
+import "Google/Protobuf/Timestamp.proto";
+
+package Generic_API_Protos;
+
+//###################################
+//TRANSITS
+//###################################
+
+message TransitsToSync{
+	repeated Transit Transits = 1;
+}
+
+message Transit{
+	int64 Id = 1;
+	google.protobuf.Timestamp LastChange = 2;
+	TransitTitle TitleIn = 3;
+	TransitPayment Payment = 4;
+	TransitTitle TitleOut = 5;
+	bool IsSubscriber = 6;
+	bool IsExitPermitted = 7;
+	string Reason = 8;
+	bool IsSyncronyzed = 9;
+	bool IsTransitSucceeded = 10;
+	bool IsAcceptedByGate = 11;
+	int64 SubscriberId = 12;
+	//used only for Special Gate Configuration different from: In or Out
+	int32 OriginalGateType = 13;
+}
+
+message TransitTitle{
+	string TokenCode = 1;
+	string Plate = 2;
+	string PlateImgCrop = 3;
+	int32 DeviceType = 4;
+	google.protobuf.Timestamp Time = 5;
+	int32 GateId = 6;
+	string GateIp = 7;
+}
+
+message TransitPayment{
+	enum PayMethod {
+			Cash = 0;
+			Electronic = 1;
+	}
+	int32 Ammount = 1;
+	PayMethod Method = 2;
+	google.protobuf.Timestamp Time = 3;
+	int32 GateId = 4;
+	string TokenCode = 5;
+	string Plate = 6;
+	google.protobuf.Timestamp ValidUntil = 7;
+}

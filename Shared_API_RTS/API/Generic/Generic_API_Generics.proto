@@ -1,0 +1,11 @@
+﻿syntax = "proto3";
+
+//package Generic_API_Protos;
+
+message Feedback {
+	bool Correct = 1;
+}
+
+message SenderInfos {
+	string Ip = 1;
+}

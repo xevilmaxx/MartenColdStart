@@ -1,0 +1,30 @@
+﻿syntax = "proto3";
+
+package Generic_API_Protos;
+
+//###################################
+//CLIENTS
+//###################################
+
+message ClientData {
+	enum PT {
+		Global = 0;
+		In = 1;
+		Out = 2;
+		Payment = 3;
+	}
+	string LocalPort = 1; // port number of local grpc server
+	PT PeerType = 2; // type of machine
+	string LastTranSync = 3; //Datetime of last syncronisation of Transits
+	string LastUserSync = 4; //Datetime of last syncronisation of Users
+}
+
+message ClientsList{
+	repeated SingleClient Clients = 1;
+}
+
+message SingleClient{
+	string Ip = 1;
+	string Port = 2;
+	bool IsConnected = 3;
+}

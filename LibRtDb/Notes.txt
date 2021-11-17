@@ -1,0 +1,59 @@
+﻿#to use proper tools execute: (Enterprise Local DB)
+dotnet tool update --global dotnet-ef --version 3.1.12
+#usually on lite gate it may be (LiteGate)
+dotnet tool update --global dotnet-ef --version 3.1.10
+
+###########
+#Notes
+###########
+When you will create migrations, destination DB must be available and running!
+Even if you might wont use update-database
+
+###########
+#Global
+###########
+
+#Path:
+cd .\ADVANCED_RTS\RT_DB\LibRtDb
+
+#Correct Tools:
+dotnet tool update --global dotnet-ef --version 5.0.3
+
+
+###########
+#SqlServer
+###########
+
+#Add Migration:
+dotnet ef migrations add InitialCreate --context SqlServerContext --output-dir Migrations/SqlServerMigrations
+
+#List Migrations:
+dotnet ef migrations list --context SqlServerContext
+
+#Remove Migrations:
+dotnet ef migrations remove --context SqlServerContext
+
+#Consolidate Migration:
+dotnet ef database update --context SqlServerContext
+
+#Remove all migrations (run remove after):
+dotnet ef database drop -f -v --context SqlServerContext
+
+###########
+#MariaDB
+###########
+
+#Add Migration:
+dotnet ef migrations add InitialCreate --context MariaDBContext --output-dir Migrations/MariaDBMigrations
+
+#List Migrations:
+dotnet ef migrations list --context MariaDBContext
+
+#Remove Migrations:
+dotnet ef migrations remove --context MariaDBContext
+
+#Consolidate Migration:
+dotnet ef database update --context MariaDBContext
+
+#Remove all migrations (run remove after):
+dotnet ef database drop -f -v --context MariaDBContext

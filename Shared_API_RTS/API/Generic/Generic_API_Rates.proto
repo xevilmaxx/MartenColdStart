@@ -1,0 +1,76 @@
+﻿syntax = "proto3";
+
+import "Google/Protobuf/Timestamp.proto";
+import "Google/Protobuf/Duration.proto";
+
+package Generic_API_Protos;
+
+//###################################
+//RATES
+//###################################
+
+message RatesToSync{
+	repeated Rate Rates = 1;
+}
+
+message Rate{
+	int64 Id = 1;
+	int32 PaymentModel = 2;
+	WeekModel WeekModel = 3;
+	repeated WeekModelException Exceptions = 4;
+	repeated SpecialDay ParkDaysOrFestivities = 5;
+}
+
+message WeekModel{
+	int32 WeekModelId = 1;
+	string WeekModelName = 2;
+	repeated WeekModelDay Days = 3;
+}
+
+message WeekModelDay{
+	enum DayNum {
+		Sunday = 0;
+		Monday = 1;
+		Tuesday = 2;
+		Wednesday = 3;
+		Thursday = 4;
+		Friday = 5;
+		Saturday = 6;
+		Festivity = 7;
+		Special = 8;
+	}
+	DayNum DayNumber = 1;
+	int32 InitialFreeMinutes = 2;
+	int64 MaxDailyRate = 3;
+	repeated TimeBelt TimeBelts = 4;
+	int64 MaxPrecalculatedDayAmount = 5;
+}
+
+message SpecialDay{
+	string Name = 1;
+	int32 Year = 2;
+	int32 Month = 3;
+	int32 Day = 4;
+}
+
+message TimeBelt{
+	string Name = 1;
+	string Color = 2;
+	google.protobuf.Duration From = 3;
+	google.protobuf.Duration To = 4;
+	int32 ParkState = 5;
+	repeated PaymentRule PaymentRules = 6;
+}
+
+message PaymentRule{
+	int32 Minutes = 1;
+	int64 Amount = 2;
+	int32 Interval = 3;
+	int32 Priority = 4;
+}
+
+message WeekModelException{
+	google.protobuf.Timestamp From = 1;
+	google.protobuf.Timestamp To = 2;
+	WeekModel WeekModel = 3;
+}

@@ -1,0 +1,48 @@
+﻿syntax = "proto3";
+
+import "Google/Protobuf/Timestamp.proto";
+import "Google/Protobuf/Duration.proto";
+import "Google/Protobuf/Wrappers.proto";
+
+package Generic_API_Protos;
+
+//###################################
+//ABILITATIONS
+//###################################
+
+message UsersToSync{
+	repeated User Users = 1;
+}
+
+message User{
+	int64 Id = 1;
+	google.protobuf.Timestamp LastChange = 2;
+	UserTitle Title = 3;
+	google.protobuf.Timestamp ValidFrom = 5;
+	google.protobuf.Timestamp ValidTo = 6;
+	bool IsAllowed = 7;
+	string Reason = 8;
+	repeated string EnabledOnGates = 9;
+	Days AllowedDays = 10;
+	bool IsSyncronyzed = 11;
+}
+
+message UserTitle{
+	string TokenCode = 1;
+	string Plate = 2;
+	google.protobuf.Int64Value SubscriptionCredit = 3; 
+}
+
+message Days{
+	repeated Day WeekDays = 1;
+}
+
+message Day{
+	int32 WeekDay = 1;
+	repeated Timing Timings = 2;
+}
+
+message Timing{
+	google.protobuf.Duration From = 1;
+	google.protobuf.Duration To = 2;
+}

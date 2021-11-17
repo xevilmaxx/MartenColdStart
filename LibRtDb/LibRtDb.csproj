@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName></SccProjectName>
+    <SccProvider></SccProvider>
+    <SccAuxPath></SccAuxPath>
+    <SccLocalPath></SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+	  <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+	  <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+	  <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+	  <!--<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>-->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="LamarCodeGeneration.Commands" Version="2.0.3" />
+    <PackageReference Include="Marten" Version="4.1.0" />
+    <PackageReference Include="NLog" Version="4.7.8" />
+    <PackageReference Include="Oakton" Version="3.2.2" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logics\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared_API_RTS\Shared_API_RTS.csproj" />
+  </ItemGroup>
+
+</Project>
